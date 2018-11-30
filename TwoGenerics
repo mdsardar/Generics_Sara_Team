@@ -44,7 +44,7 @@ class TwoGen<T, V> {
 	    TwoGen<Integer, String> tgObj = new TwoGen<Integer, String>(88, "Generics");
 	    tgObj.showTypes();
 	    
-	    String[] a = new String[]{"A1A", "A1B"};	
+	    String[] a = new String[]{"A1A", "A1B"};
 	    TwoGen<String[], String> tgObjGen = new TwoGen<String[], String>(a, "Generics");
 	    
 	    Employee emp1 = new Employee();
@@ -75,6 +75,10 @@ class TwoGen<T, V> {
 	    
 	    List<String> aStr = tgObjGen.fromArrayToList(a);
 	    System.out.println("value: " + aStr);
+	    
+	    Integer[] aInt = new Integer[]{343, 786};
+	    List<Integer> aIntegerList = tgObjGen.fromArrayToList(aInt);
+	    System.out.println("value: " + aIntegerList);
 	    
 	    //	Iterator<Employee, EmployeeTechnology> itEmp =
 	    empTechMap.keySet().stream().forEach(el-> System.out.println(el.getEpsid()));
