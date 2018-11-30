@@ -1,0 +1,91 @@
+package com.research.brains;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+class TwoGen<T, V> {
+	  T ob1;
+
+	  V ob2;
+
+	  TwoGen(T o1, V o2) {
+	    ob1 = o1;
+	    ob2 = o2;
+	  }
+
+	  void showTypes() {
+	    System.out.println("Type of T is " + ob1.getClass().getName());
+
+	    System.out.println("Type of V is " + ob2.getClass().getName());
+	  }
+
+	  T getob1() {
+	    return ob1;
+	  }
+
+	  V getob2() {
+	    return ob2;
+	  }
+	  
+	  public <T> List<T> fromArrayToList(T[] a) {   
+		    return Arrays.stream(a).collect(Collectors.toList());
+		}
+	}
+
+	
+
+	
+	public class TwoGenerics {
+		 public static void main(String args[]) {
+	    TwoGen<Integer, String> tgObj = new TwoGen<Integer, String>(88, "Generics");
+	    tgObj.showTypes();
+	    
+	    String[] a = new String[]{"A1A", "A1B"};	
+	    TwoGen<String[], String> tgObjGen = new TwoGen<String[], String>(a, "Generics");
+	    
+	    Employee emp1 = new Employee();
+	    emp1.seteName("Nalan");
+	    emp1.setEpsid(100);
+	    
+	    EmployeeTechnology _emp1_eT = new EmployeeTechnology();
+	    _emp1_eT.setEmpTech("J2EE");
+	    
+	    Employee emp12 = new Employee();
+	    emp12.seteName("Madheswaran");
+	    emp12.setEpsid(101);
+	    
+	    EmployeeTechnology _emp2_eT = new EmployeeTechnology();
+	    _emp2_eT.setEmpTech(".NET");
+	    
+	    
+	    Map<Employee, EmployeeTechnology> empTechMap = new HashMap<Employee, EmployeeTechnology>();
+	    empTechMap.put(emp12, _emp1_eT);
+	    empTechMap.put(emp12, _emp2_eT);
+	    
+	    int v = tgObj.getob1();
+	    System.out.println("value: " + v);
+
+	    String str = tgObj.getob2();
+	    System.out.println("value: " + str);
+	    
+	    
+	    List<String> aStr = tgObjGen.fromArrayToList(a);
+	    System.out.println("value: " + aStr);
+	    
+	    //	Iterator<Employee, EmployeeTechnology> itEmp =
+	    empTechMap.keySet().stream().forEach(el-> System.out.println(el.getEpsid()));
+	    empTechMap.values().stream().forEach(e2-> System.out.println(e2.getEmpTech()));
+	    
+	    TwoGen<Employee, EmployeeTechnology> tgObjGenTech = new TwoGen<Employee,EmployeeTechnology>(emp1,_emp1_eT);
+	    Employee empA1 = tgObjGenTech.getob1();
+	    EmployeeTechnology EmpTech = tgObjGenTech.getob2();
+	    
+	    System.out.println(empA1);
+	    System.out.println(EmpTech);
+	    
+	  }
+	}
