@@ -1,0 +1,51 @@
+package com.research.brains;
+
+public class Employee {
+	
+	@Override
+	public String toString() {
+		return "Employee [epsid=" + epsid + ", eName=" + eName + "]";
+	}
+	int epsid;  // Employee Pay Slip Id
+	String eName; // Employee Name 
+	
+	public int getEpsid() {
+		return epsid;
+	}
+	public void setEpsid(int epsid) {
+		this.epsid = epsid;
+	}
+	public String geteName() {
+		return eName;
+	}
+	public void seteName(String eName) {
+		this.eName = eName;
+	}
+	
+	
+
+}
+
+
+package com.research.brains;
+
+public class EmployeeTechnology {
+	
+	String empTech; // Technology the employee belongs to 
+
+	public String getEmpTech() {
+		return empTech;
+	}
+
+	public void setEmpTech(String empTech) {
+		this.empTech = empTech;
+	}
+
+	@Override
+	public String toString() {
+		return "EmployeeTechnology [empTech=" + empTech + "]";
+	}	
+	
+	
+
+}
